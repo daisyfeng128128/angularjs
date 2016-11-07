@@ -1,0 +1,121 @@
+他们都用的secure CRT是？
+
+
+angularjs简介
+    核心思想：
+        依赖注入
+        模块化
+        双向绑定
+        语义化标签
+    优点：
+
+    开发和调试工具的使用
+
+    引入angular.js文件，使用ng-app指令声明angularJS管理边界
+        ng-app="" 里面要求写一个变量名，也可不输入
+    angularJS双向绑定简单使用
+        双大括号{{}}
+    常用指令的演示：
+        ng-model,ng-bind
+
+   1、 angularJS前端MVC的设计与搭建
+        model-模型，        对应数据库
+        view-视图            对应html页面
+        controller-控制器    对应用户交互的部分   
+        ps:前端比较出名的mvc框架是estjs
+
+  2、  Binding指令实现双向数据绑定
+          ng-bind的使用
+          {{}}插值表达式的使用
+
+          当页面加载较多时，页面加载出来的就是{{}}很不美观，解决方法：（1）ng-bind
+          (2) ng-clock
+                <h1>{{uname}}</h1>
+                <h1 ng-bind="uname"></h1>
+                <h1 ng-clock class="ng-clock">{{uname}}</h1>
+                    原理：当angular扫描ng-clock时，先不渲染{{}},等全加载完之后，把class移除掉，h1标签显示出来
+                
+   3、 Contrllers的使用
+   4、 在$scope中变量和方法的使用
+        在$scope上定义方法并在页面上进行绑定调用
+        在$scope上定义变量并在方法中进行使用
+
+        ***slice splice split
+
+        1）slice(数组)
+          用法：arr.slice(start,end)
+          解释：该方法是对数组进行部分截取，并返回一个数组副本，参数start是截取的开始数组索引，end参数等于要取的最后一个字符的位置加上1(可选)
+
+          var a=[1,2,3,4,5,6];
+          var b=a.slice(0,3);     //[1,2,3]
+          var c=a.slice(3)        //[4,5,6]
+
+          //如果两个参数中的任何一个是负数，arr.length会和他们相加，试图让他们成为非负数
+          //当只传入一个参数，且是负数时,length会与参数相加，然后再截取
+            var a=[1,2,3,4,5,6];
+            var b=a.slice(-1);  //[6]
+
+          //当只传入一个参数，是负数时,并且参数的绝对值大于或等于数组length时，会截取整个数组
+            var a=[1,2,3,4,5,6];
+            var b=a.slice(-6);  //[1,2,3,4,5,6]
+            var c=a.slice(-8);  //[1,2,3,4,5,6]
+
+          //当传入两个参数一正一负时，length也会先于负数相加后，再截取
+            var a=[1,2,3,4,5,6];
+            var b=a.slice(2,-3);  //[3]
+
+          //当传入一个参数，大于或等于length时，将返回一个空数组
+            var a=[1,2,3,4,5,6];
+            var b=a.slice(6);　　//[]
+
+        2）slice（字符串）
+          用法：string.slice(start,end)
+          解释：slice方法复制string的一部分来构造一个新的字符串，用法与参数匀和数组的slice方法一样;end参数等于你要取的最后一个字符的位置值加上
+            var a="i am a boy";
+            var b=a.slice(0,6);  //"i am a"
+
+      3).splice（数组）
+        用法：array.splice(start,deleteCount,item...)
+        解释：splice方法从array中移除一个或多个数组，并用新的item替换它们。参数start是从数组array中移除元素的开始位置。参数deleteCount是要移除的元素的个数。
+        如果有额外的参数，那么item会插入到被移除元素的位置上。它返回一个包含被移除元素的数组。
+
+        var a=['a','b','c'];
+        var b=a.splice(1,1,'e','f');  //a=['a','e','f','c'],b=['b']
+
+      4.split（字符串）
+        用法：string.split(separator,limit)
+        解释：split方法把这个string分割成片段来创建一个字符串数组。可选参数limit可以限制被分割的片段数量。separator参数可以是一个字符串或一个正则表达式。如果
+        separator是一个空字符，会返回一个单字符的数组。
+
+        var a="0123456";
+        var b=a.split("",3);  //b=["0","1","2"]
+
+
+
+angularJS-services与指令的使用
+  自定义services服务
+    angularjs里services表现形式
+      value contant factory service provider(最高级)
+      value contant   做小的配置文件时使用，
+      value           值是可以改变的，
+      constant（常量）值是不可以改变的
+      （在开发中，访问地址是不可变的，$http.post()直接地址传入即可）
+    在controller中使用services
+      factory         开发中用的最多的
+                      用法：.factory("变量"，function(){
+
+                            })
+    
+  services的应用：例子见service的应用.html
+  常用指令的使用
+                  指令ng-bind,ng-model,ng-show/ng-hide,ng-if,ng-submit,ng-disabled的使用
+
+                  指令ng-checked,ng-src,ng-href,ng-class,ng-selected,ng-change的使用
+
+  常用指令ng-repeat的使用
+
+    
+
+
+
+用angular创建web程序，应是个单页面的应用程序

@@ -7,12 +7,13 @@
 <script src="angular.js"></script>
 <script type="text/javascript">
 	angular.module("todoList",[])
-	.controller("TaskCtrl",function($scope){  //$scope中$不能省，.controller控制器
-		$scope.task="";		//该变量就是在文本框下填的内容
-		$scope.tasks=[];	
+	.controller("TaskCtrl",function($scope){
+		$scope.task='';
+		$scope.tasks=[];
 		$scope.add=function(){
 			$scope.tasks.push($scope.task);
 		}
+
 	})
 
 </script>
@@ -20,14 +21,18 @@
 
 <body style="padding:10px; " ng-controller="TaskCtrl">
 	<div class="input-group">
-		<input ng-model="task"　type="text" class="form-control">
+		<input ng-model="task" type="text" class="form-control" name="">
 		<span class="input-group-btn">
 			<button class="btn btn-default" ng-click="add()">提交</button>
 		</span>
 	</div>
-	<h4>任务列表</h4>
+	<!-- <h4 ng-hide="tasks.length==0">任务列表</h4> -->
+	<h4 ng-if="tasks.length>0">任务列表</h4>
 	<ul class="list-group">
-		<li ng-repeat="item in tasks" class="list-group-item">{{item}}</li>
+		<li ng-repeat="item in tasks track by $index" class="list-group-item">
+			{{item}}
+			<a ng-click="tasks.splice($index,1)" href="#">删除</a>
+		</li>
 	</ul>
 </body>
 </html>
