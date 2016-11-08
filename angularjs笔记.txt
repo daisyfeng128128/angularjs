@@ -110,11 +110,23 @@ angularJS-services与指令的使用
   常用指令的使用
                   指令ng-bind,ng-model,ng-show/ng-hide,ng-if,ng-submit,ng-disabled的使用
 
+                  ng-show/ng-hide,ng-if 
+                  3个指令实现效果一样，if会把dom元素移除掉，show和hide不会
+
                   指令ng-checked,ng-src,ng-href,ng-class,ng-selected,ng-change的使用
+                  ng-src="{{}}"这个双大括号不能省，必须带着
+                  ng-class="{}"
+
+                  **表单里required是必填项
+                  $invaild内置的表单验证方法
+
 
   常用指令ng-repeat的使用
+    特有属性($index,$first,$last)的使用
 
-    
+  angularjs内置服务$http的使用
+    使用$http查询MYSQLshuju
+    $http实现对数据的增删改
 
 
 

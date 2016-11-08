@@ -6,43 +6,48 @@
 <link rel="stylesheet" type="text/css" href="style/foundation.min.css">
 <style type="text/css">
 	.tx{
-		wdith:50px;
+		width:50px;
 		height: 50px;
 		margin-bottom: 10px;
 		margin-left: 80px; 
 	}
 </style>
-<script src="angular.js"></script>
-<script src="js/常用指令.js"></script>
+
 </head>
 
 <body style="padding:10px; " ng-app="app">
 	<div ng-controller="UserCtrl">
-		<form action="" class="f">
+		<form action="" class="f" ng-submit="register(user)">
 			<fieldset>
 				<legend>基本信息</legend>
+				<img ng-src="{{user.icon}}" ng-class="{'tx':user.showicon}" ng-show="user.isShowImg">
 				<div>
-					<input type="text" placeholder="用户名" required name="">
+					<input type="text" ng-model="user.uname" placeholder="用户名" required>
 					<input type="password" placeholder="密码" name="">
-					职位：<select>
+					职位：<select ng-disabled='1==1'>
 						<option value="">--请选择--</option>
-						<option value="1">JAVA工程师</option>
-						<option value="2">.NET工程师</option>
+						<option value="1" ng-selected="user.zw=='1'">JAVA工程师</option>
+						<option value="2" ng-selected="user.zw=='2'">.NET工程师</option>
 					</select>
 					性别：
-						<input type="radio" name="sex">&nbsp;男&nbsp;
-						<input type="radio" name="sex">&nbsp;女&nbsp;
+						<input type="radio" ng-checked="user.sex=='1'" name="sex">&nbsp;男&nbsp;
+						<input type="radio" ng-checked="user.sex=='0'" name="sex">&nbsp;女&nbsp;
 
 				</div>
 			</fieldset>
 			<fieldset>
 				<legend>爱好</legend>
 				<div>
-					<input type="checkbox" name="">
+					<input type="checkbox" ng-checked="isChecked(1)" name="ai">&nbsp;篮球&nbsp;
+					<input type="checkbox" ng-checked="isChecked(2)" name="ai">&nbsp;足球&nbsp;
+					<input type="checkbox" ng-checked="isChecked(3)" name="ai">&nbsp;排球&nbsp;
 
 				</div>
 			</fieldset>
+			<button type="submit" class="button expand" ng-disabled="f.$invaild">提交</button>
 		</form>
 	</div>
+	<script src="angular.js"></script>
+<script src="js/order.js"></script>
 </body>
 </html>

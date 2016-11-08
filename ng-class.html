@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head lang="en">
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+<style type="text/css">
+	.tx{
+		width:50px;
+		height: 50px;
+		margin-bottom: 10px;
+		margin-left: 80px; 
+	}
+</style>
+
+</head>
+
+<body style="padding:10px; " ng-app="app" ng-controller="AddressCtrl">
+	<div style="padding:10px; font-weight:bold; ">地址管理</div>
+	<ul class="ui-list ui-link ui-list-text ui-list-active ui-border-tb">
+		<li ng-repeat="a in list" ng-class="{'selected':!first}" class="ui-border-t">
+			<h4>{{a.address}}</h4>
+		</li>
+	</ul>
+<script src="angular.js"></script>
+<script src="js/ng-repeat.js"></script>
+</body>
+</html>
