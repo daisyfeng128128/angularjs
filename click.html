@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+         <link href="bootstrap.min.css"/>
+         <script src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js"></script>
+    </head>
+    <body>
+
+        <div ng-controller="myAppCtrl">
+           <input type="button" value="按钮" ng-click="dele()"/>
+         </div>
+        <script type="text/javascript">
+            var myAppModule = angular.module("myApp",[]);
+
+            myAppModule.controller("myAppCtrl",["$scope",function($scope){
+                $scope.dele=function(){
+					console.log(1)
+				}
+            }]);
+
+           
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.service('hexafy', function() {
+			this.myFunc = function (x) {
+		        return x.toString(16);
+		    }
+		});
+		app.controller('myCtrl', function($scope, hexafy) {
+		  $scope.hex = hexafy.myFunc(255);
+		});
+	</script>
+	
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>255 的16进制是:</p>
+		<h1>{{hex}}</h1>
+	</div>
+	<p>自定义服务，用于转换16进制数：</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-app="" ng-init="names=[
+	{name:'Jani',country:'Norway'},
+	{name:'Hege',country:'Sweden'},
+	{name:'Kai',country:'Denmark'}
+	]">
+		<p>循环对象：</p>
+		<ul>
+			<li ng-repeat='x in names'>
+				{{x.name+', '+x.country}}
+			</li>
+		</ul>		
+	</div>
+	<!-- AngularJS 完美支持数据库的 CRUD（增加Create、读取Read、更新Update、删除Delete）应用程序。
+把实例中的对象想象成数据库中的记录。 -->
+</body>
+</html>

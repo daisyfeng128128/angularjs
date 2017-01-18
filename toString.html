@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		//数组
+		var array = ["CodePlayer", true, 12, -5];
+		document.write( array.toString() );  //CodePlayer,true,12,-5
+
+		// 日期
+		var date = new Date(2013, 7, 18, 23, 11, 59, 230);
+		document.write( date.toString() );
+
+		// 日期2
+		var date2 = new Date(1099, 7, 18, 23, 11, 59, 230);
+		document.writeln( date2.toString() ); // Fri Aug 18 1099 23:11:59 GMT+0800 (中国标准时间)
+
+		// 数字
+		var num =  15.26540;
+		document.writeln( num.toString() ); // 15.2654
+
+		// 布尔
+		var bool = true;
+		document.writeln( bool.toString() ); // true
+
+		// Object
+		var obj = {name: "张三", age: 18};
+		document.writeln( obj.toString() ); // [object Object]
+
+		// HTML DOM 节点
+		var eles = document.getElementsByTagName("body");
+		document.writeln( eles.toString() ); // [object NodeList]
+		document.writeln( eles[0].toString() ); // [object HTMLBodyElement]
+
+
+
+
+	</script>
+	
+</head>
+<body>
+</body>
+</html>

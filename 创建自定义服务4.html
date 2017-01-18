@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.service("bigChange",function(){
+			 this.bigFun=function(x){
+			 	return x.toUpperCase();
+			 }
+		})
+		app.controller("myCtrl",function($scope,bigChange){
+			$scope.big=bigChange.bigFun("djfaljdfasf")
+		})
+		
+	</script>
+
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>自定义大写</p>
+		<h1>{{big}}</h1>
+	</div>
+</body>
+</html>

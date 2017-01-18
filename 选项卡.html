@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angular js</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="angular-ui-router.js"></script>
+    <script type="text/javascript" src="view1.js"></script>
+    <style type="text/css">
+        .showColor{color:red}
+    </style>
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="myController">
+            <span ng-class="isColr == 0?'showColor':''" ng-click="click(1)">全部</span>
+            <span ng-class="isColr == 1?'showColor':''" ng-click="click(1)">第一个选项卡</span>
+            <span ng-class="isColr == 2?'showColor':''" ng-click="click(2)">第二个选项卡</span>
+            <span ng-class="isColr == 3?'showColor':''" ng-click="click(3)">第三个选项卡</span>
+            <span ng-class="isColr == 4?'showColor':''" ng-click="click(4)">第四个选项卡</span>
+            <div>{{title}}</div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('myController', function($scope) {
+        $scope.click = function(index){
+            $scope.isColr = index;
+            $scope.title="第"+index+"个选项卡";
+        }
+        $scope.click(0);
+    });
+</script>

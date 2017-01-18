@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-app="" ng-init="quantity=1;price=5">
+		<h2>价格计算器</h2>
+		数量：<input type="number" ng-model="quantity" name="">
+		价格：<input type="number" ng-model="price" name="">
+		<p><b>总价：</b>{{quantity*price}}</p>
+	</div>
+	<!-- 使用 ng-init 不是很常见。您将在控制器一章中学习到一个更好的初始化数据的方式。 -->
+</body>
+</html>

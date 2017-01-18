@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+</head>
+
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>当前页面的url:</p>
+		<h3>{{myUrl}}</h3>
+	</div>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope,$location){
+			$scope.myUrl=$location.absUrl();
+		})
+	</script>
+
+</body>
+</html>

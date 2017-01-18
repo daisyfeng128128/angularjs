@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<div>{{777 | ordinal}}</div>
+	</div>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.name=777
+		})
+		
+		app.filter('ordinal', function () {
+			return function (number) {
+				if (isNaN(number) || number < 1) {
+					return number;
+				} else {
+					var lastDigit = number % 10;
+					if (lastDigit === 1) {
+						return number + 'st'
+					} else if (lastDigit === 2) {
+						return number + 'nd'
+					} else if (lastDigit === 3) {
+						return number + 'rd'
+					} else if (lastDigit > 3) {
+						return number + 'th'
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

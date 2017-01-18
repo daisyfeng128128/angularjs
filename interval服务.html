@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl', function($scope, $interval) {
+	  		$scope.theTime = new Date().toLocaleTimeString();
+	  		$interval(function () {
+	      		$scope.theTime = new Date().toLocaleTimeString();
+	  		}, 1000);
+		});
+	</script>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<p>{{theTime}}</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.controller("myCtrl",function($scope){
+			$scope.sites={
+				site01:"baidu",
+				site02:"jd",
+				site03:"taobao"
+			}
+		})
+		
+	</script>
+
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>选择网站：</p>
+		<select ng-model="selectedSite" ng-options="x for (x,y) in sites">
+		</select>
+		<h1>你选择的是：{{selectedSite}}</h1>
+	</div>
+	
+</body>
+</html>

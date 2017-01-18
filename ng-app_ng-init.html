@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-app="" ng-init="firstName='John'">
+		<p>在输入框中输入</p>
+		<p>姓名：<input type="text" ng-model="firstName" name=""></p>
+		<p>你输入的为：{{firstName}}</p>
+	</div>
+	<!-- ng-app指令告诉angularjs，div元素是angularjs应用程序的所有者
+	一个网页可以包含多个运行在不同元素中的angularjs用用程序
+	 -->
+</body>
+</html>

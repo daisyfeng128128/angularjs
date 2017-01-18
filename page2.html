@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="pageApp">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="style/bootstrap.min.css" />
+<script src="angular.js"></script>
+</head>
+
+<body ng-controller="pageCon">
+	<ul class="pagination" id="p">
+      
+    </ul>
+	<script type="text/javascript">
+		var app=angular.module('pageApp',[]);
+		app.controller('pageCon',function($scope){
+			$scope.pages=[1,2,3,4,5,6,7,8,9,10,11,12];
+			var cur=1;
+
+			if(cur>=1 && cur<=6){
+				//1...10
+				var start=1;
+				var end=10;
+			}else if(cur>=7 && cur<=page-5){
+				//N-5...N+4
+				var start=cur-5;
+				var end=cur+4;
+			}else{
+				//N-9...N
+				var start=page-9;
+				var end=page;
+			}
+			var oPage=document.getElementById('p');
+			for(var i=start;i<=end;i++){
+				var oA=document.createElement('a');
+				oA.href='javascript:;';
+				oA.innerHTML=i;
+				
+				oPage.appendChild(oA);
+				
+				if(cur==i){
+					oA.className='active';
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>

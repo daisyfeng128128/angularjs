@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		名字<input ng-model="name">
+	</div>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.name="Joe"
+		})
+		app.filter("decode",function(){
+			return function(value){
+				return encodeURIComponent(value)
+			}
+		})
+	</script>
+</body>
+</html>

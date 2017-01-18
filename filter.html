@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script>
+    	var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.name='%E9%A1%B9%E9%9C%B8%E9%9C%B8';
+		})
+		app.filter("decode",function(value){
+
+				return encodeURIComponent(value)
+
+		})
+    
+    </script>
+</head>
+<body ng-controller="myCtrl">
+	<div ng-model="name"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.controller("customersCtrl",function($scope,$http){
+			//没有接口文件，所以会报错
+			$http.get("/Customers_json.php")
+			.success(function (response) {$scope.names = response.records;});
+		})
+		
+	</script>
+
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="customersCtrl">
+		<table>
+			<tr ng-repeat="x in names">
+				<td>{{x.Name}}</td>
+				<td>{{x.Country}}</td>
+			</tr>
+		</table>
+	</div>
+	
+</body>
+</html>

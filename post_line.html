@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		angular.module("newsApp", [])
+	    .constant("newsInfoUrl", "/WebPage/Page/NewsInfo/")
+	    .factory("newsService", function($http) {
+	        return {
+	            getNewsList: function (categoryId, callBack) {
+	                //请求后台数据 
+	                $http.post("/WebPage/Page/GetNewsList",
+	                    //参数分类ID，后台获取不到
+	                    { id: categoryId }
+	                    ).then(function (resp) {
+	                    callBack(resp);
+	                });
+	            } 
+	        }
+	    }) 
+	    .controller("newsListCtrl", [
+	        "$scope", "newsService", "newsInfoUrl", function($scope, newService, newsInfoUrl) {
+	            $scope.cId = "";
+	            var getNewsList = function() {
+	                newService.getNewsList($scope.cId, function(resp) {
+	                    $scope.newsList = resp.data;
+	                });
+	            }
+	            $scope.newsInfoUrl = newsInfoUrl;
+	            $scope.reload = getNewsList;
+	        }
+	    ]);
+		
+	</script>
+
+</head>
+<body>
+	<div ng-app="myApp">
+	在过滤器中使用服务:
+
+	<h1>{{255 | myFormat}}</h1>
+
+</body>
+</html>
