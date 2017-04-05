@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="angular.js"></script>
+	<script>
+		var app = angular.module('app',[])
+		.controller('AlertDemoCtrl',AlertDemoCtrl)
+		function AlertDemoCtrl($scope) {
+		  $scope.alerts = [
+		    { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+		    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+		  ];
+
+		  $scope.addAlert = function() {
+		    $scope.alerts.push({msg: "Another alert!"});
+		  };
+
+		  $scope.closeAlert = function(index) {
+		    $scope.alerts.splice(index, 1);
+		  };
+
+		}
+
+	</script>
+</head>
+<body ng-app="app">
+	<div ng-controller="AlertDemoCtrl">
+	  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+	  <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+	</div>
+</body>
+</html>

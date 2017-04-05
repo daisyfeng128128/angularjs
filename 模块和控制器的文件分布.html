@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body ng-controller="cont1">
+	<input type="button" value="显示/隐藏" ng-click="toggle()"/>
+	<p ng-hide="myVar">
+		名：<input type="text" ng-model="firstName"/>
+		姓：<input type="text" ng-model="lastName"/>
+		姓名：{{firstName+""+lastName}}
+	</p>
+<script src="angular.js"></script>
+<script src="js/myApp1.js"></script>
+<script src="js/myCtrl1.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="passAter">
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div ng-controller="passCtrl">
+		    <input type="text" ng-model="value"/>
+			<button ng-click="alertfun(value)">click</button>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+	// 1.模型参数：直接使用变量名，不要加引号
+	  angular.module('passAter',[]).controller('passCtrl',['$scope',function($scope){
+	      $scope.alertfun = function(param){
+		      alert(param);
+		  }
+	  }])
+	  // 2. 普通参数
+			// 加上引号即可
+			// 将上面的value改为 'value'
+			// 就会直接弹出 value了
+	</script>
+</html>

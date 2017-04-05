@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>自定义指令</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="angular.js"></script>
+  <script>
+  // 定义一个指令本质上是在HTML中通过元素、属性、类或注释来添加功能
+  // angular的内置指令都是以ng开头，若想自定义指令，建议自定义一个前缀代表自己的命名空间
+
+  // directive()接受两个参数
+  // name：字符串，指令的名字
+  // factory_function：函数，指令的行为指令
+  // 应用启动时，以name作为该应用的标识注册factory_function返回的对象
+    var app = angular.module("myApp", []);
+    app.directive("myDirective", function() {
+        return {
+          restrict:'A', //该属性用于定义指令以什么形式被使用，为可选参数，默认为A
+          // 元素(E)、属性(A)、类(C)、注释(M)
+          replace:true,
+          template : "<h1>自定义指令!</h1>"
+        };
+    });
+  </script>
+</head>
+
+<body ng-app="myApp">
+   <div my-directive="expression"></div>
+</body>
+</html>

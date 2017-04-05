@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+var app=angular.module('test', []);
+
+app.controller('cont1', function ($scope, $http){
+	$scope.firstName="John";
+	$scope.lastName="Doe";
+	$scope.myVar=false;
+
+	$scope.toggle=function(){
+		$scope.myVar=!$scope.myVar;
+	}
+
+});
+</script>
+</head>
+
+<body ng-controller="cont1">
+	<input type="button" value="显示/隐藏" ng-click="toggle()"/>
+	<p ng-hide="myVar">
+		名：<input type="text" ng-model="firstName"/>
+		姓：<input type="text" ng-model="lastName"/>
+		姓名：{{firstName+""+lastName}}
+	</p>
+	
+</body>
+</html>

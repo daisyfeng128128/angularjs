@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>自定义指令</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="angular.js"></script>
+  <script>
+// priority : 多个指令设置在同一个元素上的执行优先级,执行顺序从低至高:hello->well->good
+// terminal : true/false 是否停止当前元素上比该指令优先级低的指令。 但是相同的优先级还是会执行。
+// 注意:这两个参数只能在同一个元素上设置多个指令才有效
+    var app = angular.module("myApp", []);
+    app.directive("hello",function(){
+      return {
+        restrict : "E",
+        priority : 1,
+        link : function(){
+            console.log("hello")
+        }
+      }
+    });
+
+    app.directive("well",function(){
+      return {
+          restrict : "A",
+          priority : 2,
+          link : function(){
+              console.log("well")
+          }
+      }
+    });
+
+    app.directive("good",function(){
+      return {
+          restrict : "A",
+          terminal : true, //这里为true,hello、well指令将停止执行
+          priority : 3,
+          link : function(){
+              console.log("good")
+          }
+      }
+    });
+
+
+
+  </script>
+</head>
+
+<body ng-app="myApp">
+  <hello well good>
+    <div>Hello World!!!</div>
+  </hello>
+
+</body>
+</html>

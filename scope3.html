@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>自定义指令</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="angular.js"></script>
+  
+<script type="text/javascript">
+var myApp = angular.module('myApp', [])
+.controller('ChildController', function($scope) {
+    $scope.content = 'from child';
+})
+.controller('AncestorController', function($scope) {
+    $scope.content = 'from ancestor';
+})
+</script> 
+</head>
+
+<body ng-app="myApp">
+    <div ng-init="content='from root'">
+      {{content}}
+      <div ng-controller="AncestorController">
+          {{content}}     
+          <div ng-controller="ChildController">
+              {{content}}     
+          </div>
+          {{content}} 
+      </div>
+      {{content}} 
+  </div>
+</body>
+</html>

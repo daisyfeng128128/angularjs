@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>自定义指令</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="angular.js"></script>
+  
+<script type="text/javascript">
+var myApp = angular.module('myApp', [])
+.directive('myDirective', function() {
+    return {
+        restrict: 'EA',
+        scope: {
+            title: '@',
+            content: '='
+        },
+        transclude: true,
+        template: '<h2 class="header">{{ title }}</h2>\
+        <span class="content" ng-transclude></span>'
+    };
+});
+</script> 
+</head>
+
+<body ng-app="myApp">
+    <textarea ng-model="content"></textarea>
+    <div my-directive title="Kavlez">
+        <hr>
+        {{content}}
+    </div>
+</body>
+</html>

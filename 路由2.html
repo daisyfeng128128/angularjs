@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>route</title>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script type="text/javascript">
+	angular.module('Demo', ['ui.router'])
+  	.config(["$stateProvider","$urlRouterProvider",routeConfig])
+  	.controller("testCtrl")
+	 function routeConfig($stateProvider,$urlRouterProvider){
+	    $urlRouterProvider.otherwise("/app");
+	      $stateProvider
+	      .state("app",{
+	        url:"/app",
+	        templateUrl:"'page1.html'"
+	      })
+	      .state("test",{
+          	url:"/test",
+          	templateUrl:"'page3.html'"
+	    })
+	}
+</script>
+
+</head>
+
+<body>
+	<div ng-app="Demo" ng-controller="testCtrl">
+      	<ol>
+	      <li><a ui-sref="app">app</a></li>
+	      <li><a ui-sref="test">test</a></li>
+      	</ol>
+      	<div ui-view></div>
+	    <script type="text/ng-template" id="'page1.html'">
+	        this is page 1 for app.
+	    </script>
+        <script type="text/ng-template" id="'page3.html'">
+          this is page 1 for test.
+        </script>
+  </div>
+
+
+
+
+</body>
+</html>

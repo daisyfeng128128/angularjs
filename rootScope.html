@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.controller('TestCtrl',['$scope','$rootScope',
+			function($scope,$rootScope) {
+				$rootScope.name = 'this is test';
+			}
+		]);
+
+		app.controller('Test111Ctrl',['$scope','$rootScope',
+			function($scope,$rootScope) {
+				$scope.name = $rootScope.name;
+			}
+		]);
+	</script>
+	
+</head>
+<body style="padding:10px; " ng-app="myApp"> 
+	<div ng-controller="TestCtrl">
+		Iset the global variable.<strong>{{$root.name}}</strong>
+	</div>
+	<div ng-controller="Test111Ctrl">
+		1,get global variable .<strong>{{name}}</strong><br>
+		2,get global variable .<strong>{{$root.name}}</strong>
+	</div>
+</body>
+</html>

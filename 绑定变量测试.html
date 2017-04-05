@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+</head>
+<body>
+	<div ng-controller="t">
+		<input type="text"/>
+		<p>{{str}}</p>
+	</div>
+	<script type="text/javascript">
+		var app=angular.module("test",[])
+		app.controller("t", function($scope) {
+	    	$scope.str = $("#t1").val();
+
+	    $scope.toggle=function(){
+			$scope.myVar=!$scope.myVar;
+		}
+});
+
+	</script>
+</body>
+</html>

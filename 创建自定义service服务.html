@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+	//angular中service有多种表现形式：value、constant、factory、service、provider（高级）
+		angular.module('myApp', [])
+		.value('realname','amy')
+		.value('realname','lucy')	//value是可以改变的
+		.constant('http','www.baidu.com')	//constant是不可变的常量
+		.constant('http','www.jd.com')	
+		.factory('Data',function(){
+			return {
+				msg:'你好啊',
+				setMsg:function(){
+					this.msg = '我不好';
+				}
+			}
+		})
+		//service创建模式跟factory类似，factory是它的复杂版
+		.service('User',function(){
+			this.firstName = 'daisy';
+			this.lastName = 'Feng';
+			this.getName = function(){
+				return this.firstName+this.lastName;
+			}
+		})
+		.controller('myCtrl', function($scope,realname,http,Data,User) {
+			//上一行function后面括号里的都是angular的依赖注入
+			$scope.msg = '你好';
+			$scope.realname = realname;
+			$scope.http = http;
+			$scope.data = Data;
+			Data.setMsg();
+			$scope.uName = User.getName();
+		});
+	</script>
+	
+</head>
+<body style="padding:10px; "> 
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<h1>{{msg}}</h1>
+		<h1>{{realname}}</h1>
+		<h1>{{http}}</h1>
+		<h1>{{data.msg}}</h1>
+		<h1>{{uName}}</h1>
+	</div>
+</body>
+</html>
